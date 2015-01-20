@@ -75,6 +75,16 @@ class @Post extends Minimongoid
 
     'Mystery blogger'
 
+  authorOccupation: ->
+    author = @author()
+
+    if author
+      if author.profile and author.profile.occupation
+        return author.profile.occupation
+
+
+    'Mystery occupation'
+
 
 #
 # Server Methods
