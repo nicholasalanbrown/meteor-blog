@@ -14,6 +14,7 @@ class @Post extends Minimongoid
     @_collection.update _id: post.id,
       $set:
         tags: post.tags
+        category: post.category
         excerpt: post.excerpt
 
   @slugify: (str) ->
@@ -30,6 +31,9 @@ class @Post extends Minimongoid
 
     if not @slug
       @error 'slug', "Blog slug is required"
+
+    if not @category
+      @error 'category', "Blog category is required"
 
   html: ->
     @body
